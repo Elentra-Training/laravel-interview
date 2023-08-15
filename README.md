@@ -20,6 +20,12 @@ Welcome to the Laravel 10x Sandbox project! This repository serves as a test env
 
 2. **Start Docker Containers**
 
+   Copy the `.env.example` to `.env`:
+
+   ```
+   cp .env.docker .env
+   ```
+
    Use Docker Compose to build and start the services:
 
    ```
@@ -31,15 +37,10 @@ Welcome to the Laravel 10x Sandbox project! This repository serves as a test env
     - `--build`: Build the images if necessary.
     - `-d`: Run the containers in detached mode (in the background).
 
+
 3. **Setup Laravel Environment**
 
-   After the Docker containers are up, copy the `.env.example` to `.env`:
-
-   ```
-   cp .env.docker .env
-   ```
-
-    Then go into the `sandbox_app` container and execute the installation command.
+    Go into the `sandbox_app` container and execute the installation command.
 
    ```
    docker exec -it sandbox_app bash
