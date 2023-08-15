@@ -20,6 +20,12 @@ Welcome to the Laravel 10x Sandbox project! This repository serves as a test env
 
 2. **Start Docker Containers**
 
+   Copy the `.env.example` to `.env`:
+
+   ```
+   cp .env.docker .env
+   ```
+
    Use Docker Compose to build and start the services:
 
    ```
@@ -31,15 +37,10 @@ Welcome to the Laravel 10x Sandbox project! This repository serves as a test env
     - `--build`: Build the images if necessary.
     - `-d`: Run the containers in detached mode (in the background).
 
+
 3. **Setup Laravel Environment**
 
-   After the Docker containers are up, copy the `.env.example` to `.env`:
-
-   ```
-   cp .env.docker .env
-   ```
-
-    Then go into the `sandbox_app` container and execute the installation command.
+    Go into the `sandbox_app` container and execute the installation command.
 
    ```
    docker exec -it sandbox_app bash
@@ -95,11 +96,13 @@ If you encounter any issues while setting up or running the project:
    
 3. Change any of the following environment variables in the `.env` file if you're experiencing conflicts with ips or ports:
 
-   ```properties
+   ```dotenv
     WEB_HOSTNAME=127.0.0.200
     IPV4_NETWORK=173.25.2
     REDIS_PORT=6380
     DATABASE_HOST_PORT=3307
+    # On OSX ports 1-1024 are reserved so mapping it to 8080 instead. access via http://localhost:8080
+    WEB_HOSTNAME_PORT=8080
    ```
 
 The above values are intended to avoid conflicts with other services running on your machine. You can change them to whatever you want.
